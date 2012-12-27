@@ -3,7 +3,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>us.physion</groupId>
-	<artifactId>ovation-core</artifactId>
+	<artifactId>osx-keychain-java</artifactId>
 	<version>1.0-SNAPSHOT</version>
 	<packaging>pom</packaging>
 	

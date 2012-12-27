@@ -1,0 +1,98 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>us.physion</groupId>
+	<artifactId>ovation-core</artifactId>
+	<version>1.0-SNAPSHOT</version>
+	<packaging>pom</packaging>
+	
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+		<keystore.path>cert/dev.keystore</keystore.path>
+		<keystore.type>JKS</keystore.type>
+		<keystore.alias>dev</keystore.alias>
+		<keystore.store.password>ovation-core-dev</keystore.store.password>
+		<keystore.key.password>ovation-core-dev</keystore.key.password>
+		
+		<ant.dist.directory>dist</ant.dist.directory>
+	</properties>
+
+
+	<organization>
+		<name>Physion Consulting LLC</name>
+		<url>http://www.physionconsulting.com</url>
+	</organization>
+	
+	<build>
+		<plugins>
+			<!-- Ant delegation -->
+			<plugin>
+			  <artifactId>maven-antrun-plugin</artifactId>
+			  <executions>
+			    <execution>
+			      <phase>process-resources</phase>
+			      <configuration>
+			        <tasks>
+			          <ant antfile="build.xml" target="build"/>
+			        </tasks>
+			      </configuration>
+			      <goals>
+			        <goal>run</goal>
+			      </goals>
+			    </execution>
+			  </executions>
+			</plugin>
+			<plugin>
+			  <groupId>org.codehaus.mojo</groupId>
+			  <artifactId>build-helper-maven-plugin</artifactId>
+			  <version>1.3</version>
+			  <executions>
+			    <execution>
+			      <id>add-jar</id>
+			      <phase>package</phase>
+			      <goals>
+			        <goal>attach-artifact</goal>
+			      </goals>
+			      <configuration>
+			        <artifacts>
+			          <artifact>
+			            <file>${ant.dist.directory}/osxkeychain.jar</file>
+			            <type>jar</type>
+			          </artifact>
+			        </artifacts>
+			      </configuration>
+			    </execution>
+			  </executions>
+			</plugin>
+			
+			
+			<!--Jar signing-->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-jarsigner-plugin</artifactId>
+				<version>1.2</version>
+				<executions>
+					<execution>
+						<id>sign</id>
+						<goals>
+							<goal>sign</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<keystore>${keystore.path}</keystore>
+					<alias>${keystore.alias}</alias>
+					<storepass>${keystore.store.password}</storepass>
+					<keypass>${keystore.key.password}</keypass>
+				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+	
+    <scm>
+        <connection>scm:git:git@github.com:physion/osx-keychain-java.git</connection>
+        <url>scm:git:git@github.com:physion/osx-keychain-java.git</url>
+    </scm>
+</project>

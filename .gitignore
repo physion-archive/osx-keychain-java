@@ -1,0 +1,9 @@
+dist
+lib
+src/java/com/mcdermottroe/apple/OSXKeychainProtocolType.java
+
+src/java/com/mcdermottroe/apple/OSXKeychainAuthenticationType.java
+
+src/c/com_mcdermottroe_apple_OSXKeychain.h
+
+src/c/codegen/generate_enums

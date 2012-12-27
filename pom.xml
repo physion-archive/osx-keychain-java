@@ -58,7 +58,7 @@
 			      <configuration>
 			        <artifacts>
 			          <artifact>
-			            <file>${ant.dist.directory}/osxkeychain.jar</file>
+			            <file>${ant.dist.directory}/osxkeychain.jar</file> 
 			            <type>jar</type>
 			          </artifact>
 			        </artifacts>

@@ -1,5 +1,7 @@
 dist
 lib
+target
+
 src/java/com/mcdermottroe/apple/OSXKeychainProtocolType.java
 
 src/java/com/mcdermottroe/apple/OSXKeychainAuthenticationType.java

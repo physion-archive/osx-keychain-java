@@ -28,7 +28,7 @@
 	<build>
 		<plugins>
 			<!-- Ant delegation -->
-			<plugin>
+			<!-- <plugin>
 				<artifactId>maven-antrun-plugin</artifactId>
 				<executions>
 					<execution>
@@ -53,7 +53,7 @@
 						<systemPath>${java.home}/../lib/tools.jar</systemPath>
 					</dependency>
 				</dependencies>
-			</plugin>
+			</plugin> -->
 			<plugin>
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>build-helper-maven-plugin</artifactId>
@@ -66,6 +66,7 @@
 							<goal>attach-artifact</goal>
 						</goals>
 						<configuration>
+							<finalName>osx-keychain-java-${project.version}</finalName>
 							<artifacts>
 								<artifact>
 									<file>${ant.dist.directory}/osxkeychain.jar</file> 

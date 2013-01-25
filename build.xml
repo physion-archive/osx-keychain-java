@@ -31,7 +31,11 @@
 		<mkdir dir="lib" />
 	</target>
 	<target name="build-java" depends="build-dest,codegen">
-		<javac destdir="lib" includeantruntime="false" debug="true">
+		<javac destdir="lib" 
+			includeantruntime="false" 
+			debug="true"
+			target="1.6"
+			source="1.6">
 			<src path="src/java" />
 		</javac>
 	</target>

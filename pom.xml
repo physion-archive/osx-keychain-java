@@ -26,6 +26,13 @@
 	</organization>
 	
 	<build>
+        <extensions>
+            <extension>
+                <groupId>org.springframework.build</groupId>
+                <artifactId>aws-maven</artifactId>
+                <version>4.4.0.RELEASE</version>
+            </extension>
+        </extensions>
 		<plugins>
 			<!-- Ant delegation -->
 			<!-- <plugin>

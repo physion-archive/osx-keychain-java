@@ -154,6 +154,7 @@
 	
 	<scm>
 		<connection>scm:git:git@github.com:physion/osx-keychain-java.git</connection>
+		<developerConnection>scm:git:git@github.com:physion/osx-keychain-java.git</developerConnection>
 		<url>scm:git:git@github.com:physion/osx-keychain-java.git</url>
 	</scm>
 </project>
